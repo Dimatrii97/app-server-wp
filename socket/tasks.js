@@ -67,12 +67,14 @@ module.exports.setTask = (socket, io, {title, subtitle, date, executor, type, su
   .then((task)=>{
 
     if (subtasks.length) {
-      subtasks.forEach((elem) => {
-        elem.status = false;
-        elem.taskId = task.id;
-        return;
+      let subtasksValid = subtasks.map((elem) => {
+        let newElem = {};
+        newElem.title = elem;
+        newElem.status = false;
+        newElem.taskId = task.id;
+        return newElem;
       });
-      Subtask.bulkCreate(subtasks);
+      Subtask.bulkCreate(subtasksValid);
     }
     return Task.findOne({
       where: { id: task.id },
