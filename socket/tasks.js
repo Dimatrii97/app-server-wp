@@ -67,6 +67,7 @@ module.exports.setTask = (socket, io, {title, subtitle, date, executor, type, su
   .then((task)=>{
 
     if (subtasks.length) {
+      // dd
       let subtasksValid = subtasks.map((elem) => {
         let newElem = {};
         newElem.title = elem;
