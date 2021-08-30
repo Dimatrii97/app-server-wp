@@ -7,11 +7,12 @@ const Subtask = require('./subtask');
 User.belongsToMany(Task, { through: Enrolment });
 Task.belongsToMany(User, { through: Enrolment });
 Task.hasMany(Subtask);
+Messages.hasMany(User);
 module.exports = {
   Enrolment,
   Task,
   User,
   Range,
   Messages,
-  Subtask
-} 
+  Subtask,
+};

@@ -1,15 +1,218 @@
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op
-const sequelize = new Sequelize ('testvkr', 'postgres', '12345678', {
+const Op = Sequelize.Op;
+const sequelize = new Sequelize('testvkr', 'postgres', '12345678', {
   host: 'localhost',
-  port:'5432',
-  dialect:'postgres',
+  port: '5432',
+  dialect: 'postgres',
   define: {
-    timestamps: false
-  }
+    timestamps: false,
+  },
 });
 sequelize.sync();
-sequelize.authenticate().then(() => {
-  }).catch(err => {
-  })
+sequelize
+  .authenticate()
+  .then(() => {})
+  .catch((err) => {});
 module.exports = sequelize;
+
+createUsers = (params) => {
+  let password = bcrypt.hashSync('123456', 10);
+  let usersIt = [
+    {
+      id: uuidv4(),
+      login: 'exemple1@mail.ru',
+      password,
+      name: 'Jacob William',
+      email: 'exemple1@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 5,
+      department: 'IT отдел',
+      position: 'Руководитель отдела',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple2@mail.ru',
+      password,
+      name: 'Lawrence Marvin',
+      email: 'exemple2@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Руководитель проектов',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple3@mail.ru',
+      password,
+      name: 'Clifford David',
+      email: 'exemple3@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Руководитель проектов',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple4@mail.ru',
+      password,
+      name: 'Peter Christopher',
+      email: 'exemple4@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Ст. Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple5@mail.ru',
+      password,
+      name: 'Preston Edward',
+      email: 'exemple5@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Ст. Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple6@mail.ru',
+      password,
+      name: 'Charles Edmund',
+      email: 'exemple6@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Ст. Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple7@mail.ru',
+      password,
+      name: 'Donald David',
+      email: 'exemple7@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 3,
+      department: 'IT отдел',
+      position: 'Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple8@mail.ru',
+      password,
+      name: 'Anthony Timothy',
+      email: 'exemple8@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 3,
+      department: 'IT отдел',
+      position: 'Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple9@mail.ru',
+      password,
+      name: 'Mark Gilbert',
+      email: 'exemple9@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 5,
+      department: 'IT отдел',
+      position: 'Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple10@mail.ru',
+      password,
+      name: 'Allen Donald',
+      email: 'exemple10@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 3,
+      department: 'IT отдел',
+      position: 'Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple11@mail.ru',
+      password,
+      name: 'Ronald Anthony',
+      email: 'exemple11@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 2,
+      department: 'IT отдел',
+      position: 'Сис. Админ',
+    },
+
+    {
+      id: uuidv4(),
+      login: 'exemple12@mail.ru',
+      password,
+      name: 'James Anthony',
+      email: 'exemple12@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 2,
+      department: 'IT отдел',
+      position: 'Тестировщик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple13@mail.ru',
+      password,
+      name: 'Alfred John',
+      email: 'exemple13@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 4,
+      department: 'IT отдел',
+      position: 'Сис. Аналитик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple14@mail.ru',
+      password,
+      name: 'Steven Ethan',
+      email: 'exemple14@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 1,
+      department: 'IT отдел',
+      position: 'J-n Разработчик',
+    },
+    {
+      id: uuidv4(),
+      login: 'exemple15@mail.ru',
+      password,
+      name: 'Jacob Roland',
+      email: 'exemple15@mail.ru',
+      age: '2020-10-10',
+      tel: '894324322344',
+      range: 1,
+      department: 'IT отдел',
+      position: 'J-n Разработчик',
+    },
+  ];
+  for (const iterator of usersIt) {
+    User.create({
+      id: iterator.id,
+      login: iterator.login,
+      password: password,
+      name: iterator.name,
+      email: iterator.email,
+      age: iterator.age,
+      img: 'default',
+      tel: iterator.tel,
+      range: iterator.range,
+      department: iterator.department,
+      position: iterator.position,
+    });
+  }
+};
